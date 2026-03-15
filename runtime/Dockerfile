@@ -75,7 +75,11 @@ RUN --mount=type=cache,id=uv-cache,target=/home/runtimeuser/.cache/uv,uid=1000,g
     uv sync --extra test
 COPY --chown=${RUNTIME_USER}:${RUNTIME_USER} tests/ ./tests/
 
+# Pre-download model weights so tests can run without network access
+RUN uv run python3 -c "from huggingface_hub import snapshot_download; snapshot_download('Qwen/Qwen3-ASR-0.6B')"
+
 ## TEST-RUNTIME
 FROM test-base AS test-runtime
 ENV UV_NO_SYNC=1
-CMD ["uv", "run", "pytest", "tests"]
+ENV VLLM_ATTENTION_BACKEND=TRITON_ATTN
+CMD ["bash", "-c", "HF_HUB_OFFLINE=1 uv run pytest tests"]
