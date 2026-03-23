@@ -20,7 +20,7 @@ dependencies = [
     # cuda-python to >=12.6 below. vLLM inference works correctly on CUDA 12.6 in
     # practice, but not all models or features have been verified under this
     # configuration. Test thoroughly on the target hardware.
-    "vllm>=0.14.0",
+    #"vllm>=0.14.0",
     "soundfile",
     "transformers[torch]>=4.52.4",
     "torch>=2.9.0",
