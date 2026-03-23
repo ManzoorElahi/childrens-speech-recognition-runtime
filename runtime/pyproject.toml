@@ -13,7 +13,7 @@ dependencies = [
     "nemo_toolkit[asr]>=2.5.0",
     "peft",
     "pyctcdecode==0.5.0",
-    "qwen-asr[vllm]",
+    #"qwen-asr[vllm]",
     "sacrebleu", # Needed for NeMo SpeechLM2
     # NOTE: vLLM's dependency chain (flashinfer -> nvidia-cutlass-dsl) declares a
     # cuda-python pin higher than what the competition runtime ships. We override
