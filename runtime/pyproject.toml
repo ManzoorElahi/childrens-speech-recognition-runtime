@@ -27,7 +27,7 @@ dependencies = [
     "torchaudio",
     "torchcodec",
     "tqdm",
-    "tesnorflow==2.15.0",
+    "tensorflow==2.15.0",
     "keras==2.15.0",
     "pandas"
 ]
